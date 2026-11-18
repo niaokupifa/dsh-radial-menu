@@ -19,7 +19,7 @@ dsh plugin --profile desktop add /path/to/dsh-radial-menu
 ### 从 GitHub
 
 ```bash
-dsh plugin --profile desktop add github:<你的用户名>/dsh-radial-menu
+dsh plugin --profile desktop add github:niaokupifa/dsh-radial-menu
 ```
 
 装好后在「设置 → 环形菜单」里调整。
