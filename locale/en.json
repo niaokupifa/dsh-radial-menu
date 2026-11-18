@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "Radial context menu",
+    "description": "Replaces the right-click menu with a Qoder-style radial menu: workspace files, browser, review, terminal and the sidebar, in one ring.",
+    "detail": "docs/DETAIL.md"
+  }
+}

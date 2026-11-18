@@ -1,0 +1,7 @@
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
+
+# Workspace notes, not part of the published plugin.
+对话记录.md

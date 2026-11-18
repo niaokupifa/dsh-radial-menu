@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "环形右键菜单",
+    "description": "用 Qoder 风格的环形菜单替换右键菜单：工作区文件、内置浏览器、审阅、终端与侧边任务，一圈直达。",
+    "detail": "docs/DETAIL.md"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "name": "dsh-radial-menu",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A Qoder-style radial (pie) right-click menu for the DeepSeek Harness desktop app.",
+  "license": "MIT",
+  "keywords": ["dsh", "dsh-plugin", "context-menu", "radial-menu", "pie-menu"],
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "locale/*.json",
+    "docs",
+    "icon.svg",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-layout",
+        "@deepseek-ai/dsh-client-ui-sidebar-right",
+        "@deepseek-ai/dsh-client-ui-settings"
+      ]
+    }
+  }
+}
