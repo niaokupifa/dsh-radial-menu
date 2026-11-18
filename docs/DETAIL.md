@@ -2,7 +2,7 @@
 
 在 DeepSeek Harness 里按下右键，光标周围展开一圈快捷入口 —— 不用再在长长的列表菜单里找。
 
-![预览](./preview.svg)
+![预览](./preview.png)
 
 ## 它做什么
 
