@@ -62,7 +62,7 @@ window.__ModuleLoader__.load({
       'settings.moveUp': '上移 {name}',
       'settings.moveDown': '下移 {name}',
       'settings.reset': '恢复默认',
-      'settings.note': '按住 Shift 再点右键始终使用系统菜单；在输入框或已选中文字上右键也保留系统菜单。',
+      'settings.note': '按住 Shift 再点右键始终使用系统菜单；在输入框或已选中文字上右键也保留系统菜单。工作区文件、内置浏览器已经是当前显示的那一页时，再按一次会把它关掉。',
     }
 
     /** English copy, same key set. */
@@ -95,7 +95,7 @@ window.__ModuleLoader__.load({
       'settings.moveUp': 'Move {name} up',
       'settings.moveDown': 'Move {name} down',
       'settings.reset': 'Reset to defaults',
-      'settings.note': 'Shift + right-click always shows the system menu; right-clicking an input or selected text does too.',
+      'settings.note': 'Shift + right-click always shows the system menu; right-clicking an input or selected text does too. When Workspace files or Built-in browser is already the page on screen, the same entry closes it.',
     }
 
     /* ---------------------------------------------------------------- config */
@@ -709,17 +709,24 @@ window.__ModuleLoader__.load({
           return t('toast.noReview')
         }
 
+        /** Open one of the app's single-instance pages, or close it when it is already the page on screen. */
+        function showOrClose(kind) {
+          if (ctx.sidebarRight.isExpanded() === true) {
+            const active = ctx.sidebarRight.active()
+            if (active !== undefined && active.kind === kind) {
+              ctx.sidebarRight.close(active.id)
+              return null
+            }
+          }
+          ctx.sidebarRight.openTab(kind)
+          return null
+        }
+
         /** Run one ring item; returns a message to show, or null when it just opened a surface. */
         function perform(id) {
           try {
-            if (id === 'files') {
-              ctx.sidebarRight.openTab('files')
-              return null
-            }
-            if (id === 'browser') {
-              ctx.sidebarRight.openTab('browser')
-              return null
-            }
+            if (id === 'files') return showOrClose('files')
+            if (id === 'browser') return showOrClose('browser')
             if (id === 'terminal') {
               ctx.sidebarRight.openTab('terminal')
               return null
